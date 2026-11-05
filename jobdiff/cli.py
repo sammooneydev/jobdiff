@@ -11,6 +11,9 @@ def cmd_add(args):
     
 def cmd_remove(args):
     print(f"remove: not implemented yet, but url passed is: {args.url}")
+    
+def cmd_sources(args):
+    print("sources: not implemented yet")
 
 def main():
     parser = argparse.ArgumentParser(prog="jobdiff", description="Track new job postings.")
@@ -33,6 +36,10 @@ def main():
     remove_parser = subparsers.add_parser("remove", help="removes provided url from list of sources if present in current list")
     remove_parser.add_argument("url", help="url to be removed from source list") #adding required "url" argument to "remove" command
     remove_parser.set_defaults(func=cmd_remove)
+    
+    #parser setup for "sources" command, complete with help message
+    sources_parser = subparsers.add_parser("sources", help="prints currently stored list of sources provided by user")
+    sources_parser.set_defaults(func=cmd_sources)
     
     args = parser.parse_args()
     args.func(args)
