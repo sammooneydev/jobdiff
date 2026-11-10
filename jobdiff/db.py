@@ -17,6 +17,9 @@ def get_connection():
     
     return conn
 
+"""
+function that when called, initialises the database tables "sources", and "jobs"
+"""
 def init_db():
     conn = get_connection()
     conn.execute("""
